@@ -17,6 +17,12 @@ var dataJson = [
         "paragraph":"This is a Angry Bird Game",
         "url":"https://github.com/administrator91/Angry_Bird"
     },
+    {
+      "img": "https://user-images.githubusercontent.com/143781304/274919305-fe318d7e-47ad-4281-8dfc-43267a0de017.png",
+      "title": "Calculator_Web",
+      "paragraph":"This is a Simple Web_Calculator",
+      "url":"https://administrator91.github.io/Calculator_web/"
+  }
     
 ];
 
