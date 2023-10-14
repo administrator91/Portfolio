@@ -145,28 +145,56 @@
         <div class="row mt-5 justify-content-center">
           <span class="maincolor text-center mb-4" id="contact">CONTACT</span>
           <div class="col-md-10 col-lg-6">
+            <div style="background-color:black;color:white;padding:20px;">
+               <p style="color:#33FFB8;" class="fs-3 mt-4 text-center " class="txt-color">
+               <i> Fill out the form below to get in touch with our administrator. Administrator will seen your message and try to get back to you within 48 hours.
+                If administrator do not reply within that time please feel free to use the form again..</i>
+               </p>
+            </div>
             <!-- form -->
-            <form id="formid">
+            <form action="https://formsubmit.co/38cf64d84a5136790739b6c0237e03b1" method="POST" id="formid">
               <div class="mb-3">
-                <input type="hidden" name="Name" id="Name" value="@PORTFOLIO" />
+                <label for="Name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control input-bg"
+                  id="name"
+                  name="name"
+                  placeholder="Enter Your Name"
+                required />
+              </div>
+
+              <div class="mb-3">
                 <label for="Email" class="form-label">Email address</label>
                 <input
                   type="email"
                   class="form-control input-bg"
                   id="Email"
-                  name="Email"
-                  placeholder="name@example.domain"
-                />
+                  name="email"
+                  placeholder="administrator@example.domain"
+                required />
               </div>
+
+              <div class="mb-3">
+                <label for="Subject" class="form-label">Subject</label>
+                <input
+                  type="text"
+                  class="form-control input-bg"
+                  id="subject"
+                  name="subject"
+                  placeholder="Enter Your mail Subject"
+                required />
+              </div>
+
               <div class="mb-3">
                 <label for="Message" class="form-label">Message</label>
                 <textarea
                   class="form-control input-bg"
                   id="Message"
-                  name="Request"
+                  name="message"
                   rows="3"
                   placeholder="Message"
-                ></textarea>
+                required ></textarea>
               </div>
               <button id="submit" type="submit" class="btn">Send</button>
               <span
@@ -267,7 +295,7 @@
     <script src="./script/logic.js"></script>
     <script src="./script/skills/progress.js"></script>
     <script src="./script/typeing.js"></script>
-    <script src="./script/send.js"></script>
+    <!--############### one code delete here ###############-->
     <script src="./script/project/project.js"></script>
     <!-- For seo dont think about -->
     <script type="application/ld+json">
