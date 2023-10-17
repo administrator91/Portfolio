@@ -358,3 +358,9 @@ ul li a i:hover {
 #toggle-card:not(.active) {
   display: none;
 }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+}
