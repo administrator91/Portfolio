@@ -25,7 +25,7 @@ var dataJson = [
     },
     {
     "img": "https://t3.ftcdn.net/jpg/00/02/03/32/240_F_2033260_xOH9OumIoBCi6KqrFld0OPQRJpCj6K.jpg",
-    "title": "Simple_SnakeGame",
+    "title": "Snake_Game",
     "paragraph":"Hey Buddy!! this is my Simple Snake Game .You can also enjoy listening to music while playing the game..",
     "url":"https://administrator91.github.io/Simple_SnakeGame/"
     },
