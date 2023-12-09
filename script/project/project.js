@@ -42,7 +42,7 @@ var dataJson = [
     "url":"https://github.com/administrator91/Packet_Sniffer"
     },
      {
-    "img": "https://webline-services.com/wp-content/uploads/2021/02/45-459945_email-clipart.jpg",
+    "img": "https://img.freepik.com/premium-vector/letter-with-declaration-love-mail-envelope-with-heart-hand-drawn-message-valentines-day-declaration-love-vector-illustration-isolated-white-background_192280-639.jpg",
     "title": "Mail-Application",
     "paragraph":"Welcome to the Python Mail Application—a user-friendly email sender. With a clean GUI, secure Gmail authentication, and seamless operation, sending emails has never been simpler. Upgrade your communication experience effortlessly.",
     "url":"https://github.com/administrator91/CodeClause_MailApplication"
