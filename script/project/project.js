@@ -47,7 +47,12 @@ var dataJson = [
     "paragraph":"Welcome to the Python Mail Application—a user-friendly email sender. With a clean GUI, secure Gmail authentication, and seamless operation, sending emails has never been simpler. Upgrade your communication experience effortlessly.",
     "url":"https://github.com/administrator91/CodeClause_MailApplication"
     },
-    
+     {
+    "img": "https://cdn-icons-png.flaticon.com/512/5018/5018543.png",
+    "title": "Music Player",
+    "paragraph":"A sleek, Python-driven music player with an intuitive GUI. Effortlessly play, pause, and navigate through your music collection for a streamlined listening.",
+    "url":"https://github.com/administrator91/CodeClause_MusicPlayer"
+    },
 ];
 
 var raw_html = "";
