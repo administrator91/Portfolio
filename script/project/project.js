@@ -41,6 +41,12 @@ var dataJson = [
     "paragraph":"It's a Python-based network analysis tool using Scapy for capturing, analyzing, and inspecting insecure local network packet traffic..",
     "url":"https://github.com/administrator91/Packet_Sniffer"
     },
+     {
+    "img": "https://i.pinimg.com/474x/02/51/30/025130a0c39093a4264ee22e59042be8.jpg",
+    "title": "Mail-Application",
+    "paragraph":"Welcome to the Python Mail Application—a user-friendly email sender. With a clean GUI, secure Gmail authentication, and seamless operation, sending emails has never been simpler. Upgrade your communication experience effortlessly.",
+    "url":"https://github.com/administrator91/CodeClause_MailApplication"
+    },
     
 ];
 
