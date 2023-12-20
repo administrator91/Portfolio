@@ -18,7 +18,7 @@ var dataJson = [
         "url":"https://github.com/administrator91/Angry_Bird"
     },
     {
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiGH_sl12X46xGKrl-gLuhYWjuDo0QG39euA&usqp=CAU",
+      "img": "",
       "title": "Calculator_Web",
       "paragraph":"This is a Simple Web_Calculator",
       "url":"https://administrator91.github.io/Calculator_web/"
