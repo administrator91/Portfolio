@@ -1,24 +1,24 @@
 var dataJson = [
     {
-        "name": "WEB DEVELOPMENT",
+        "name": "Web Development",
         "width": "45%"
     }, 
     , {
         "name": "Ethical Hacking & Cyber Security",
-        "width": "65%"
+        "width": "63%"
     },{
         "name": "C++",
         "width": "60%"
     }, {
-        "name": "PYTHON",
-        "width": "62%"
+        "name": "Python",
+        "width": "65%"
     },
     {
-        "name": "JS",
-        "width": "40%"
+        "name": "Computer Network",
+        "width": "55%"
     },{
         "name": "Shell Scripting",
-        "width": "64%"
+        "width": "60%"
     }
 ];
 
