@@ -611,7 +611,7 @@ table {
 }
 
 th, td {
-  padding: 15px;
+  padding: 10px; /* Reduced padding for smaller screens */
   border: 1px solid #ddd;
   text-align: center;
 }
@@ -622,7 +622,7 @@ th {
 }
 
 .badge-image {
-  width: 100px; /* Adjust as necessary */
+  width: 80px; /* Slightly smaller badge size */
   height: auto;
   transition: transform 0.3s ease;
 }
@@ -634,3 +634,31 @@ th {
 tbody tr:hover {
   background-color: #f9f9f9; /* Highlight row on hover */
 }
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  table {
+    width: 100%; /* Ensure table width remains 100% */
+  }
+
+  th, td {
+    font-size: 12px; /* Reduce font size on smaller screens */
+    padding: 8px; /* Reduce padding for smaller screens */
+  }
+
+  .badge-image {
+    width: 60px; /* Smaller badge size for small screens */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  th, td {
+    font-size: 10px; /* Further reduce font size for very small screens */
+    padding: 6px; /* Further reduce padding */
+  }
+
+  .badge-image {
+    width: 50px; /* Smallest badge size for very small screens */
+  }
+}
+/* CERT END ABOVE */
