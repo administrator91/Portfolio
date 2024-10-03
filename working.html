@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Under Construction</title>
      <script>
-        function handleSignup(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Redirect to working.html with a query parameter indicating a successful signup
-            window.location.href = 'working.html?signedUp=true';
-        }
+        // Check if the page was accessed directly
+        document.addEventListener("DOMContentLoaded", function() {
+            if (document.referrer === "") {
+                // If there's no referrer, redirect to 404
+                window.location.href = '404.html';
+            }
+        });
     </script>
     <style>
         body {
