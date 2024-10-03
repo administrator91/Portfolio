@@ -23,6 +23,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" />
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/143781304?v=4"/>
+     <script>
+        function handleSignup(event) {
+            event.preventDefault(); // Prevent the form from submitting the default way
+            // Here you could add any validation for the form fields if needed
+            
+            // Redirect to working.html after successful signup
+            window.location.href = 'working.html';
+        }
+    </script>
   </head>
   <body>
     <div class="top-progress-container">
