@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Under Construction</title>
     <script>
-    if (window.location.pathname.includes('working.html')) {
-        window.location.href = '404.html';
-    }
+        // Check if the user signed up
+        if (!sessionStorage.getItem('signedUp')) {
+            // If not signed up, redirect to 404 page
+            window.location.href = '404.html';
+        } else {
+            // Optionally clear the signedUp flag after accessing the page
+            sessionStorage.removeItem('signedUp');
+        }
+    </script>
 </script>
 
     <style>
