@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Under Construction</title>
-    <script>
-        // Check if the user signed up
-        if (!sessionStorage.getItem('signedUp')) {
-            // If not signed up, redirect to 404 page
-            window.location.href = '404.html';
-        } else {
-            // Optionally clear the signedUp flag after accessing the page
-            sessionStorage.removeItem('signedUp');
+     <script>
+        function handleSignup(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Optionally, you can validate the form fields here
+
+            // Redirect to working.html with a query parameter
+            window.location.href = 'working.html?signedUp=true';
         }
-    </script>
-</script>
 
     <style>
         body {
