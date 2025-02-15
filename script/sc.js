@@ -1,6 +1,6 @@
 function downloadResume() {
     // path
-    const resumePath = 'https://drive.google.com/file/d/1Iusq1ipDRoW99417123AfkATk00X0C5L/view?usp=drivesdk';
+    const resumePath = 'https://drive.google.com/file/d/1kW8ADPyaxNi4nYQF7KwX-DA8xSvP35ZF/view?usp=drivesdk';
 
     // Creating a temporary anchor element to trigger the download
     const link = document.createElement('a');
