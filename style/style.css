@@ -37,6 +37,7 @@ body {
 #submit{
   border: 1px solid var(--maincolor);
   color: var(--maincolor);
+  font-size: 19px;
 }
 #submit:hover{
   background-color: var(--maincolor);
