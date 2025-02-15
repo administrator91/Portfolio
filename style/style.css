@@ -666,23 +666,3 @@ tbody tr:hover {
 
 
 
-
-.yoyocv {
-    text-align: center;
-    margin-top: 50px;
-}
-
-#downloadButton {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#downloadButton:hover {
-    background-color: #45a049;
-}
