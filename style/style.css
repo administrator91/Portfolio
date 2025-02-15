@@ -743,3 +743,34 @@ tbody tr:hover {
   filter: blur(1px);
 }
 /* H1 NAME styles END */
+
+
+
+
+/* CONTACT SEND button styles */
+@keyframes glitch {
+  0% { text-shadow: 2px 2px #ff0000; }
+  25% { text-shadow: -2px -2px #00ff00; }
+  50% { text-shadow: 2px -2px #0000ff; }
+  75% { text-shadow: -2px 2px #ff00ff; }
+  100% { text-shadow: 2px 2px #ff0000; }
+}
+
+@keyframes hoverEffect {
+  0% { box-shadow: 0 0 5px #00ff00; }
+  50% { box-shadow: 0 0 15px #00ff00, 0 0 30px #0ff; }
+  100% { box-shadow: 0 0 5px #00ff00; }
+}
+
+/* Apply glitch effect when idle */
+#submit {
+  animation: glitch 1s infinite alternate;
+  transition: 0.3s;
+}
+
+/* On hover, add hacker glow effect */
+#submit:hover {
+  animation: hoverEffect 0.8s infinite alternate;
+  transform: scale(1.05);
+}
+/* CONTACT SEND button styles END */
