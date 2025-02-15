@@ -716,3 +716,30 @@ tbody tr:hover {
 
 
 
+
+/* H1 NAME styles */
+@keyframes glitch {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes colorFlicker {
+  0%, 100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; }
+  50% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff; }
+}
+
+/* Apply animation to existing class */
+.maincolor.big-title {
+  animation: glitch 1s infinite alternate, colorFlicker 1.5s infinite alternate;
+}
+
+/* Hover Effect */
+.maincolor.big-title:hover {
+  animation: glitch 0.2s infinite alternate, colorFlicker 0.3s infinite alternate;
+  filter: blur(1px);
+}
+/* H1 NAME styles END */
