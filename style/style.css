@@ -369,25 +369,75 @@ ul li a i:hover {
 
 /*  CV HERE 👇👇 */
 
-.cv {
-  text-align: center;
-}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
-button {
-  padding: 13px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #34db8a;
-  color: #ffffff;
-  transition: background-color 0.3s ease;
-}
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+        }
 
-button:hover {
-  background-color: #fa37bf;
-}
+        .cv {
+            text-align: center;
+        }
+
+        .glitch-btn {
+            position: relative;
+            padding: 10px 20px; /* Mobile-friendly size */
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            color: #00ff00;
+            background: transparent;
+            border: 2px solid #00ff00;
+            text-transform: uppercase;
+            cursor: pointer;
+            overflow: hidden;
+            transition: 0.4s;
+            border-radius: 5px;
+        }
+
+        .glitch-btn:hover {
+            background: #00ff00;
+            color: black;
+            box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+        }
+
+        /* Glitch Effect */
+        .glitch-btn span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            color: #ff0000;
+            opacity: 0;
+            animation: glitch 0.3s infinite alternate;
+        }
+
+        .glitch-btn:hover span {
+            opacity: 1;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(1px, -1px);
+            }
+            100% {
+                transform: translate(-1px, 1px);
+            }
+        }
+
+        /* Responsive for Mobile */
+        @media (max-width: 768px) {
+            .glitch-btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
 /* CV END */
 
 
