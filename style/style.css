@@ -458,7 +458,7 @@ ul li a i:hover {
   color: black;
   text-align: center;
   padding: 30px;
-  margin: 20px auto;  /* ✅ Auto margin se proper center */
+  margin: 1px auto;  /* ✅ Auto margin se proper center */
   border: 3px solid #0f0;
   box-shadow: 0 0 15px #0f0;
   border-radius: 4px;
