@@ -454,16 +454,35 @@ ul li a i:hover {
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 .hacker-help {
-    background: white;
-    color: black;
-    text-align: center;
-    padding: 35px;
-    margin: 10px auto;
-    border: 3px solid #0f0;
-    box-shadow: 0 0 20px #0f0;
-    border-radius: 4px;
-    font-family: 'VT323', monospace;
-    max-width: 1200px;
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 30px;
+  margin: 20px auto;  /* ✅ Auto margin se proper center */
+  border: 3px solid #0f0;
+  box-shadow: 0 0 15px #0f0;
+  border-radius: 4px;
+  font-family: 'VT323', monospace;
+  width: 85%;  /* ✅ Default width for most screens */
+  max-width: 900px;  /* ✅ Laptop ke liye width adjust */
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 768px) {
+  .hacker-help {
+      width: 90%;  /* ✅ Mobile screens pe full width le */
+      padding: 20px;
+      font-size: 16px;
+      box-shadow: 0 0 10px #0f0;
+  }
+}
+
+/* 🖥️ Large Screens (Laptop / Desktop) */
+@media (min-width: 1200px) {
+  .hacker-help {
+      width: 90%;  /* ✅ Laptop screens par aur chhoti width */
+      max-width: 1230px;  /* ✅ Ensuring no extra-wide issue */
+  }
 }
 
 .hacker-help h2 {
