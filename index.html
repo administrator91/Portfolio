@@ -232,57 +232,92 @@
                </p>
             </div>
             <!-- form -->
-            <form action="https://formsubmit.co/38cf64d84a5136790739b6c0237e03b1" method="POST" id="formid">
-              <div class="mb-3">
-                <label for="Name" class="form-label">Name</label>
-                <input
-                  type="text"
-                  class="form-control input-bg"
-                  id="name"
-                  name="name"
-                  placeholder="Enter Your Name"
-                required />
-              </div>
+            <form action="https://api.web3forms.com/submit" method="POST" id="formid">
+  
+  <!-- WFA -->
+  <input type="hidden" name="access_key" value="6cc10784-1828-44d3-9269-9ff0486e6614" />
 
-              <div class="mb-3">
-                <label for="Email" class="form-label">Email address</label>
-                <input
-                  type="email"
-                  class="form-control input-bg"
-                  id="Email"
-                  name="email"
-                  placeholder="administrator@example.domain"
-                required />
-              </div>
+  <!-- Custom Subject for Email -->
+  <input type="hidden" name="subject" value="Hey Administrator, a new contact form has been submitted on your website. Please check it!" />
 
-              <div class="mb-3">
-                <label for="Subject" class="form-label">Subject</label>
-                <input
-                  type="text"
-                  class="form-control input-bg"
-                  id="subject"
-                  name="subject"
-                  placeholder="Enter Your mail Subject"
-                required />
-              </div>
+  <div class="mb-3">
+    <label for="Name" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control input-bg"
+      id="name"
+      name="name"
+      placeholder="Enter Your Name"
+      required
+    />
+  </div>
 
-              <div class="mb-3">
-                <label for="Message" class="form-label">Message</label>
-                <textarea
-                  class="form-control input-bg"
-                  id="Message"
-                  name="message"
-                  rows="3"
-                  placeholder="Message"
-                required ></textarea>
-              </div>
-              <button id="submit" type="submit" class="btn">Send</button>
-              <span
-                id="checker"
-                class="maincolor"
-              ></span>
-            </form>
-          </div>
+  <div class="mb-3">
+    <label for="Email" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control input-bg"
+      id="Email"
+      name="email"
+      placeholder="administrator@example.domain"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="UserSubject" class="form-label">Subject</label>
+    <input
+      type="text"
+      class="form-control input-bg"
+      id="usersubject"
+      name="User_Subject"
+      placeholder="Enter Your Mail Subject"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="Message" class="form-label">Message</label>
+    <textarea
+      class="form-control input-bg"
+      id="Message"
+      name="message"
+      rows="3"
+      placeholder="Message"
+      required
+    ></textarea>
+  </div>
+
+  <button id="submit" type="submit" class="btn">Send</button>
+
+  <!-- Success Message -->
+  <p id="successMessage" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
+    ✅ Your message has been sent successfully!
+  </p>
+
+</form>
+
+<script>
+  document.getElementById("formid").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Stop default form submission
+
+    let form = event.target;
+    let formData = new FormData(form);
+
+    let response = await fetch(form.action, {
+      method: "POST",
+      body: formData
+    });
+
+    if (response.ok) {
+      document.getElementById("successMessage").style.display = "block"; // Show success message
+      form.reset(); // Reset form fields
+    } else {
+      alert("❌ Failed to send message. Please try again!");
+    }
+  });
+</script>
+
           <div class="row mt-5 justify-content-center"> <!--  <div class="col-md-10 col-lg-6 justify-content-center mt-5">  -->
             <!--###################### social links ######################-->
             <div class="row">
