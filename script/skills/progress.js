@@ -14,11 +14,31 @@ var dataJson = [
         "width": "65%"
     },
     {
-        "name": "Computer Network",
+        "name": "Computer Network's",
         "width": "55%"
     },{
         "name": "Shell Scripting",
         "width": "60%"
+    },
+    {
+        "name": "Web Security & Bug Hunting",
+        "width": "42%"
+    },
+    {
+        "name": "Network Security",
+        "width": "65%"
+    },
+    {
+        "name": "Active Directory Attacks",
+        "width": "65%"
+    },
+    {
+        "name": "Linux & Windows Exploitation",
+        "width": "65%"
+    },
+    {
+        "name": "Malware Analysis",
+        "width": "40%"
     }
 ];
 
