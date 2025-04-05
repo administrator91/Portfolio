@@ -388,21 +388,45 @@ I am constantly evolving, learning new techniques, and embracing challenges that
                 </li>
               </ul>
             </div> -->
-            <p class="text-center">
-              Copyright © -
-              <a
-                rel="administrator91"
-                href=""
-                target="_blank"
-                class="maincolor"
-                title="Home-Page"
-                >RAJARSHI SARKAR</a
-              >
+            
+            <!--###################### COPYRIGHT SECTION (BOTTOM) START ######################-->
+            <p class="text-center footer-animate">
+              <span class="copytext">Copyright © -</span>
+              <a rel="administrator91" href="#" target="_blank" class="maincolor glow-name" title="Home-Page" id="name">
+                <span class="char">R</span><span class="char">A</span><span class="char">J</span><span class="char">A</span><span class="char">R</span><span class="char">S</span><span class="char">H</span><span class="char">I</span>
+                &nbsp;
+                <span class="char">S</span><span class="char">A</span><span class="char">R</span><span class="char">K</span><span class="char">A</span><span class="char">R</span>
+              </a>
             </p>
+
+            <script>
+              const chars = document.querySelectorAll('#name .char');
+            
+              function createParticle(el) {
+                const rect = el.getBoundingClientRect();
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.innerText = '💖';
+            
+                const offsetX = Math.random() * el.offsetWidth;
+                const offsetY = Math.random() * el.offsetHeight;
+            
+                particle.style.left = window.scrollX + rect.left + offsetX + 'px';
+                particle.style.top = window.scrollY + rect.top + offsetY + 'px';
+            
+                document.body.appendChild(particle);
+                setTimeout(() => {
+                  particle.remove();
+                }, 2000);
+              }
+            
+              setInterval(() => {
+                const random = chars[Math.floor(Math.random() * chars.length)];
+                createParticle(random);
+              }, 130);
+            </script>
+            <!--###################### COPYRIGHT SECTION (BOTTOM) END ######################-->
           </div>
-        </div>
-      </div>
-    </main>
 
     <footer>
       <!-- bottom card -->
