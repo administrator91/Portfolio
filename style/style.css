@@ -743,14 +743,14 @@ tbody tr:hover {
 
 
 /* COPYRIGHT ANIMATION (BOTTOM) START */
-.footer-animate {
+/* .footer-animate {
   font-family: 'Segoe UI', sans-serif;
   text-align: center;
 }
 
 .footer-animate .copytext {
-  color: #888;              /* Soft gray for copyright */
-  font-size: 17px;           /* Thoda chhota than name */
+  color: #888;            
+  font-size: 17px;         
 }
 
 .footer-animate .glow-name {
@@ -758,7 +758,7 @@ tbody tr:hover {
   
   text-shadow: 0 0 1px #ff2289, 0 0 2px rgba(0, 207, 255, 0.4);
   transition: text-shadow 0.3s ease;
-  font-size: 8px;           /* Chhota but visible */
+  font-size: 8px;          
 }
 
 .footer-animate .glow-name:hover {
@@ -783,7 +783,17 @@ tbody tr:hover {
     transform: translateY(-60px) scale(0.4);
     opacity: 0;
   }
-}
+} */
 /* COPYRIGHT ANIMATION (BOTTOM) END */
+
+
+
+
+
+
+
+
+
+
 
 
