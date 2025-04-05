@@ -706,3 +706,41 @@ tbody tr:hover {
 
 
 
+/* CURSOR SPARK START */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: red;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: sparkleAnimation 0.5s ease-out forwards, rainbowShift 1s linear infinite;
+}
+
+@keyframes sparkleAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes rainbowShift {
+  0% { background-color: red; }
+  16% { background-color: orange; }
+  32% { background-color: yellow; }
+  48% { background-color: green; }
+  64% { background-color: blue; }
+  80% { background-color: indigo; }
+  100% { background-color: violet; }
+}
+/* CURSOR SPARK END */
+
+
+
+
+
