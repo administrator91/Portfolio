@@ -742,5 +742,48 @@ tbody tr:hover {
 
 
 
+/* COPYRIGHT ANIMATION (BOTTOM) START */
+.footer-animate {
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.footer-animate .copytext {
+  color: #888;              /* Soft gray for copyright */
+  font-size: 17px;           /* Thoda chhota than name */
+}
+
+.footer-animate .glow-name {
+  color: #ff0f7f;
+  
+  text-shadow: 0 0 1px #ff2289, 0 0 2px rgba(0, 207, 255, 0.4);
+  transition: text-shadow 0.3s ease;
+  font-size: 8px;           /* Chhota but visible */
+}
+
+.footer-animate .glow-name:hover {
+  text-shadow: 0 0 2px #00cfff, 0 0 4px rgba(0, 207, 255, 0.5);
+}
+
+.particle {
+  position: absolute;
+  font-size: 10px;
+  color: hotpink;
+  animation: floatUp 2s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60px) scale(0.4);
+    opacity: 0;
+  }
+}
+/* COPYRIGHT ANIMATION (BOTTOM) END */
 
 
