@@ -401,6 +401,47 @@ I am constantly evolving, learning new techniques, and embracing challenges that
             <!--###################### COPYRIGHT SECTION (BOTTOM) END ######################-->
          </div>
 
+
+            <!--###################### RIGHT CLICK DISBLE START ######################-->
+          <div id="rightclick-alert">🚨 System Warning: Aapko source code dekhne ka license nahi mila! 😂</div>
+          <script>
+            document.addEventListener('keydown', function(e) {
+              // Block F12
+              if (e.key === 'F12') {
+                e.preventDefault();
+                showRightClickAlert();
+              }
+          
+              // Block Ctrl+U, Ctrl+Shift+I, Ctrl+S
+              if ((e.ctrlKey && e.key === 'u') ||
+                  (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                  (e.ctrlKey && e.key === 's')) {
+                e.preventDefault();
+                showRightClickAlert();
+              }
+            });
+          
+            // Alert function reused for right click also
+            function showRightClickAlert() {
+              const alert = document.getElementById('rightclick-alert');
+              alert.style.display = 'block';
+              alert.classList.remove('show');
+              void alert.offsetWidth;
+              alert.classList.add('show');
+              setTimeout(() => {
+                alert.style.display = 'none';
+              }, 2500);
+            }
+          
+            // Disable right-click
+            document.addEventListener('contextmenu', function(e) {
+              e.preventDefault();
+              showRightClickAlert();
+            });
+          </script>
+          <!--###################### RIGHT CLICK DISBLE END ######################-->
+
+
     <footer>
       <!-- bottom card -->
       <div class="crd" id="toggle-card">
