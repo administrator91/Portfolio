@@ -787,7 +787,37 @@ tbody tr:hover {
 /* COPYRIGHT ANIMATION (BOTTOM) END */
 
 
+/* COPYRIGHT ANIMATION (BOTTOM) START 2 */
+.footer-text {
+  text-align: center;
+  padding: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+}
 
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Only for the animated name */
+.rainbow-name-footer {
+  background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #00f0ff);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-footer 5s ease infinite;
+  display: inline-block;
+}
+
+@keyframes rainbow-footer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* COPYRIGHT ANIMATION (BOTTOM) END 2 */
 
 
 
