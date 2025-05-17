@@ -30,7 +30,7 @@ var dataJson = [
     "url":"https://administrator91.github.io/Tic-Tac-Toe/"
   },
   {
-    "img": "https://c0.klipartz.com/pngpicture/243/882/gratis-png-caracter-serpiente-verde-dibujo-de-serpientes-y-escaleras-serpiente-thumbnail.png",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBjXrTZbr5QcGVVAPjT4dAeMnUD_WX8ifdYiZEM7pszASUEmyAQ5VGHfWr-yuWIEH1Oig&usqp=CAU",
     "title": "Snake_Game",
     "paragraph":"Hey Buddy!! this is my Simple Snake Game .You can also enjoy listening to music while playing the game..",
     "url":"https://administrator91.github.io/Simple_SnakeGame/"
@@ -42,7 +42,7 @@ var dataJson = [
     "url":"https://github.com/administrator91/Angry_Bird"
   },
   {
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT15JBm8LgExvnK40bm6SoPCXtqSJTdNj56Xw&s",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9LMbxU78PNFzUUDkm7G-qMVF16cCQAVOMlw&s",
     "title": "Calculator_Web",
     "paragraph":"This is a Simple Web_Calculator",
     "url":"https://administrator91.github.io/Calculator_web/"
