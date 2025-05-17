@@ -37,7 +37,7 @@ var dataJson = [
   },
   {
     "img": "https://upload.wikimedia.org/wikipedia/en/2/2d/Angry_Birds_promo_art.png",
-    "title": "ANGRY BIRD",
+    "title": "Angry Bird",
     "paragraph":"This is a Angry Bird Game",
     "url":"https://github.com/administrator91/Angry_Bird"
   },
