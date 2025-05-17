@@ -30,7 +30,7 @@ var dataJson = [
     "url":"https://administrator91.github.io/Tic-Tac-Toe/"
   },
   {
-    "img": "https://t3.ftcdn.net/jpg/00/02/03/32/240_F_2033260_xOH9OumIoBCi6KqrFld0OPQRJpCj6K.jpg",
+    "img": "https://image.similarpng.com/file/similarpng/very-thumbnail/2021/10/Cute-green-snake-cartoon-on-transparent-background-PNG.png",
     "title": "Snake_Game",
     "paragraph":"Hey Buddy!! this is my Simple Snake Game .You can also enjoy listening to music while playing the game..",
     "url":"https://administrator91.github.io/Simple_SnakeGame/"
@@ -42,13 +42,13 @@ var dataJson = [
     "url":"https://github.com/administrator91/Angry_Bird"
   },
   {
-    "img": "https://img.freepik.com/free-vector/vector-realistic-calculator-button-electronic-digit-calculation-display-minus-plus-illustration_1284-42370.jpg?size=626&ext=jpg&ga=GA1.1.1225026954.1700406531&semt=ais",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT15JBm8LgExvnK40bm6SoPCXtqSJTdNj56Xw&s",
     "title": "Calculator_Web",
     "paragraph":"This is a Simple Web_Calculator",
     "url":"https://administrator91.github.io/Calculator_web/"
   },
   {
-  "img": "https://img.freepik.com/premium-vector/letter-with-declaration-love-mail-envelope-with-heart-hand-drawn-message-valentines-day-declaration-love-vector-illustration-isolated-white-background_192280-639.jpg",
+  "img": "https://img.freepik.com/premium-vector/vector-vector-cartoon-mail-envelope-icon-email-sign-illustration_516414-295.jpg",
   "title": "Mail-Application",
   "paragraph":"Welcome to the Python Mail Application—a user-friendly email sender. With a clean GUI, secure Gmail authentication, and seamless operation, sending emails has never been simpler. Upgrade your communication experience effortlessly.",
   "url":"https://github.com/administrator91/CodeClause_MailApplication"
