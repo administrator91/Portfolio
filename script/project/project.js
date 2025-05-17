@@ -30,7 +30,7 @@ var dataJson = [
     "url":"https://administrator91.github.io/Tic-Tac-Toe/"
   },
   {
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBjXrTZbr5QcGVVAPjT4dAeMnUD_WX8ifdYiZEM7pszASUEmyAQ5VGHfWr-yuWIEH1Oig&usqp=CAU",
+    "img": "https://cdn-icons-png.flaticon.com/128/8277/8277654.png",
     "title": "Snake_Game",
     "paragraph":"Hey Buddy!! this is my Simple Snake Game .You can also enjoy listening to music while playing the game..",
     "url":"https://administrator91.github.io/Simple_SnakeGame/"
@@ -42,7 +42,7 @@ var dataJson = [
     "url":"https://github.com/administrator91/Angry_Bird"
   },
   {
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9LMbxU78PNFzUUDkm7G-qMVF16cCQAVOMlw&s",
+    "img": "https://cdn-icons-png.flaticon.com/128/2344/2344132.png",
     "title": "Calculator_Web",
     "paragraph":"This is a Simple Web_Calculator",
     "url":"https://administrator91.github.io/Calculator_web/"
