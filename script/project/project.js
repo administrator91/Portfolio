@@ -30,7 +30,7 @@ var dataJson = [
     "url":"https://administrator91.github.io/Tic-Tac-Toe/"
   },
   {
-    "img": "https://image.similarpng.com/file/similarpng/very-thumbnail/2021/10/Cute-green-snake-cartoon-on-transparent-background-PNG.png",
+    "img": "https://c0.klipartz.com/pngpicture/243/882/gratis-png-caracter-serpiente-verde-dibujo-de-serpientes-y-escaleras-serpiente-thumbnail.png",
     "title": "Snake_Game",
     "paragraph":"Hey Buddy!! this is my Simple Snake Game .You can also enjoy listening to music while playing the game..",
     "url":"https://administrator91.github.io/Simple_SnakeGame/"
@@ -48,7 +48,7 @@ var dataJson = [
     "url":"https://administrator91.github.io/Calculator_web/"
   },
   {
-  "img": "https://img.freepik.com/premium-vector/vector-vector-cartoon-mail-envelope-icon-email-sign-illustration_516414-295.jpg",
+  "img": "https://cdn-icons-png.flaticon.com/512/4420/4420779.png",
   "title": "Mail-Application",
   "paragraph":"Welcome to the Python Mail Application—a user-friendly email sender. With a clean GUI, secure Gmail authentication, and seamless operation, sending emails has never been simpler. Upgrade your communication experience effortlessly.",
   "url":"https://github.com/administrator91/CodeClause_MailApplication"
