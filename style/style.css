@@ -847,6 +847,46 @@ tbody tr:hover {
 }
 /* RIGHT CLICK RESTRICTED END */
 
+/* POP-UP BOX START */
+.animated-name {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  background: linear-gradient(
+    90deg,
+    #00f0ff,
+    #00ffc3,
+    #7effa5,
+    #ffdf7e,
+    #ff9a9e,
+    #fcb69f,
+    #a18cd1,
+    #00f0ff
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowGradient 8s ease-in-out infinite;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 0.6),
+    0 0 12px rgba(0, 255, 195, 0.4),
+    0 0 18px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes glowGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* POP-UP BOX END */
+
 
 
 
