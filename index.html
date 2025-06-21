@@ -34,36 +34,51 @@
     </script>
   </head>
   <body>
-    <div class="top-progress-container">
-      <div class="top-progress-bar" id="top-bar"></div>
-    </div>
-    <header>
-      <!-- navbar start -->
-      <div class="container mb-5">
-        <div class="row justify-content-center mt-4">
-          <div class="col-3 text-center">
-            <span class="maincolor fs-6 hover"
-              ><a href="#about" title="About" class="a-tag">ABOUT</a></span
-            >
-          </div>
-          <div class="col-3 text-center">
-            <span class="maincolor fs-6 hover"
-              ><a href="#skills" title="Skills" class="a-tag">SKILLS</a></span
-            >
-          </div>
-          <div class="col-3 text-center">
-            <span class="maincolor fs-6 hover"
-              ><a href="#Projects" title="Projects" class="a-tag">PROJECTS</a></span
-            >
-          </div>
-          <div class="col-3 text-center">
-            <span class="maincolor fs-6 hover"
-              ><a href="#contact" title="Contact" class="a-tag">CONTACT</a></span
-            >
-          </div>
-        </div>
-      </div>
-      <!-- navbar close -->
+
+<!--  NAV MENU SECTION START -->
+ <!-- Toggle Button (top right corner) -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<!-- Slide Menu -->
+<div id="slideMenu" class="slide-menu">
+  <a href="#about" onclick="toggleMenu()">ABOUT</a>
+  <a href="#skills" onclick="toggleMenu()">SKILLS</a>
+  <a href="#projects" onclick="toggleMenu()">PROJECTS</a>
+  <a href="#contact" onclick="toggleMenu()">CONTACT</a>
+
+  <!-- Footer inside nav -->
+  <div class="menu-footer">
+    <p>© RAJARSHI SARKAR</p>
+  </div>
+</div>
+
+<!-- Background overlay to close nav -->
+<div id="menuOverlay" class="menu-overlay" onclick="toggleMenu()"></div>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("slideMenu");
+    const overlay = document.getElementById("menuOverlay");
+
+    if (menu.style.width === "250px") {
+      // Close menu
+      menu.style.width = "0";
+      overlay.classList.remove("active");
+    } else {
+      // Open menu
+      menu.style.width = "250px";
+      overlay.classList.add("active");
+    }
+  }
+
+  // Optional: ESC key also closes menu
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      document.getElementById("slideMenu").style.width = "0";
+      document.getElementById("menuOverlay").classList.remove("active");
+    }
+  });
+</script>
+<!--  NAV MENU SECTION CLOSED -->
 
       <!-- for image/name/effect start -->
       <div class="container">
