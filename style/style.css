@@ -902,8 +902,7 @@ tbody tr:hover {
 .slide-menu {
   height: 100%;
   width: 0;
-  position: fixed;
-  z-index: 1000;
+  position: fixed; /* ensures nav stays fixed even during scroll */
   top: 0;
   right: 0;
   left: auto;
@@ -915,6 +914,7 @@ tbody tr:hover {
   padding-top: 80px;
   box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
 }
 
 /* ===== NAV BUTTONS – Colorful Gradient Grid Look per Button ===== */
