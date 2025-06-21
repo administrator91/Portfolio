@@ -1025,6 +1025,33 @@ tbody tr:hover {
   box-shadow: none;
   padding: 0;
 }
+/* ✅ Make slide-menu fully responsive */
+.slide-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  max-width: 80vw;
+  height: 100vh;
+  overflow-y: auto; /* only if content really overflows */
+}
+
+/* ✅ Prevent extra scroll inside nav */
+.slide-menu::-webkit-scrollbar {
+  display: none;
+}
+
+/* ✅ Ensure links take full width but fit */
+.slide-menu a {
+  flex-shrink: 0;
+}
+
+/* ✅ Footer always at bottom */
+.menu-footer {
+  margin-top: auto;
+  padding-bottom: 20px;
+}
+
 /*  ############################################### NAV MENU CLOSED ###############################################  */
 
 /* #########################  MAIN CONTENT START FROM SOME DISTANCE ON TOP SIDE ######################## */
