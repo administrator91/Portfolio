@@ -55,23 +55,63 @@ h5{
     margin-bottom: 10px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     color:maroon;
-}
-a{
-padding: 12px 24px;
-background-color:darkslategrey;
-color: white;
-border-radius: 12px;
-border: none;
-}
-a:hover{
-    background-color:green;
-    font-size:x-large;
-    color: lightblue;
-}
-a{
+}.responsive-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    font-size: 18px; /* Fixed font-size */
+    border: none;
+    border-radius: 50px;
     text-decoration: none;
-    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 200, 0.4);
+    position: relative;
+    z-index: 1;
+    animation: glowing 3s infinite ease-in-out;
 }
+
+.responsive-btn:hover {
+    background: linear-gradient(135deg, #38ef7d, #11998e);
+    color: black;
+    transform: scale(1.08); /* Grows visually, no layout shift */
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.7);
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px #00ffe7;
+    }
+    50% {
+        box-shadow: 0 0 25px #00ffe7, 0 0 35px #00ffe7;
+    }
+    100% {
+        box-shadow: 0 0 5px #00ffe7;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .responsive-btn {
+        font-size: 16px;
+        padding: 10px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-btn {
+        font-size: 15px;
+        padding: 9px 20px;
+    }
+}
+html, body {
+    overflow: hidden;
+    height: 100%;
+}
+
+
     </style>
 </head>
 <body>
@@ -80,11 +120,12 @@ a{
             <img src="https://cdn-icons-png.flaticon.com/128/3076/3076339.png"><br>
         		<h4>While Enumerated and Scanning my website without my permission,<br>
                     it was found that,</h4><h5>"YOU HAVE BEEN HACKED!"</h5><br>
-                    <h5>BE CAREFUL''</h5>
+                    <h5>"BE CAREFUL''</h5>
                 
                 <br>
                 <br>
-                <a href="index.html" title="Home">HOME</a>
+                <a href="index.html" title="Home" class="responsive-btn">HOME</a>
+
     	</div>
     </div>
 </body>
