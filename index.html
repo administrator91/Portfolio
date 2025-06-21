@@ -55,11 +55,11 @@
 <!-- Background overlay to close nav -->
 <div id="menuOverlay" class="menu-overlay" onclick="toggleMenu()"></div>
 <script>
-  function toggleMenu() {
+  function toggleMenu(forceClose = false) {
     const menu = document.getElementById("slideMenu");
     const overlay = document.getElementById("menuOverlay");
 
-    if (menu.style.width === "250px") {
+    if (menu.style.width === "250px" || forceClose) {
       // Close menu
       menu.style.width = "0";
       overlay.classList.remove("active");
@@ -70,12 +70,21 @@
     }
   }
 
-  // Optional: ESC key also closes menu
+  // ESC key closes menu
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-      document.getElementById("slideMenu").style.width = "0";
-      document.getElementById("menuOverlay").classList.remove("active");
+      toggleMenu(true);
     }
+  });
+
+  // Auto-close nav on scroll if it's open
+  let lastScroll = window.scrollY;
+  window.addEventListener("scroll", function () {
+    const menu = document.getElementById("slideMenu");
+    if (menu.style.width === "250px") {
+      toggleMenu(true); // Close nav menu when scrolling
+    }
+    lastScroll = window.scrollY;
   });
 </script>
 <!--  NAV MENU SECTION CLOSED -->
