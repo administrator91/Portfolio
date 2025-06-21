@@ -888,6 +888,167 @@ tbody tr:hover {
 /* POP-UP BOX END */
 
 
+/*  ############################################### NAV MENU START ###############################################  */
+/* MAIN PORTFOLIO CONTENT PADDING */
+/* ===== MAIN CONTENT - Push down from top ===== */
+.main-content {
+  padding-top: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+/* ===== SLIDE MENU CONTAINER – Glass Effect with More Blur, Less Transparency ===== */
+.slide-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: auto;
+  background: rgba(255, 255, 255, 0.15); /* stronger background */
+  backdrop-filter: blur(20px);           /* increased blur */
+  -webkit-backdrop-filter: blur(20px);   /* Safari support */
+  overflow-x: hidden;
+  transition: 0.5s ease-in-out;
+  padding-top: 80px;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===== NAV BUTTONS – Colorful Gradient Grid Look per Button ===== */
+.slide-menu a {
+  padding: 12px 22px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  display: block;
+  text-align: left;
+  margin: 10px 15px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #ff9a9e,
+    #fad0c4,
+    #a1c4fd,
+    #c2e9fb,
+    #fbc2eb,
+    #a6c1ee
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+/* ===== HOVER EFFECT ===== */
+.slide-menu a:hover {
+  color: #111;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f, #ff9a9e, #fbc2eb);
+  background-size: 300% 300%;
+  animation: gradientMove 5s ease infinite;
+  font-weight: 700;
+  transform: scale(1.03);
+}
+
+/* ===== GRADIENT ANIMATION KEYFRAMES ===== */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== TOGGLE BUTTON (TOP RIGHT CORNER) ===== */
+.menu-toggle {
+  font-size: 25px;
+  cursor: pointer;
+  color: #000;
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  z-index: 1100;
+  background: #ffffffcc;
+  padding: 5px 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00000033;
+  transition: 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: #00f2fe;
+  color: #fff;
+}
+
+/* ===== OPTIONAL: Hide toggle on larger devices if not needed ===== */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+/* === Overlay for background click to close nav === */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 900;
+  display: none;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+/* === Copyright Footer Inside Nav === */
+.menu-footer {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  animation: gradientMove 8s ease infinite;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+/*  ############################################### NAV MENU CLOSED ###############################################  */
+
+/* #########################  MAIN CONTENT START FROM SOME DISTANCE ON TOP SIDE ######################## */
+/* 🖥️ Default for laptops/desktops */
+.container {
+  margin-top: 50px;
+}
+
+/* 📱 Small Devices (phones) */
+@media (max-width: 576px) {
+  .container {
+    margin-top: 30px;
+  }
+}
+
+/* 📱 Medium Devices (tablets) */
+@media (min-width: 577px) and (max-width: 991px) {
+  .container {
+    margin-top: 80px;
+  }
+}
+
+/* #########################  MAIN CONTENT DISTANCE END HERE  ####################################  */
+
 
 
 
