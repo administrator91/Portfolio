@@ -1051,6 +1051,27 @@ tbody tr:hover {
 /* #########################  MAIN CONTENT DISTANCE END HERE  ####################################  */
 
 
+/* Resume Button (Same style but unique colors) */
+.resume-btn {
+  display: block;
+  margin: 15px 0;
+  padding: 18px 0; /* same padding as other buttons */
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 25px; /* same rounded corners */
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #ff9800, #ff5722); /* orange-red gradient */
+  box-shadow: 0 4px 15px rgba(255, 87, 34, 0.5);
+  transition: all 0.3s ease;
+}
+
+.resume-btn:hover {
+  background: linear-gradient(135deg, #ff5722, #ff9800);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.8);
+}
 
 
 
