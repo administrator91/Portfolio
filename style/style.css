@@ -1050,6 +1050,274 @@ tbody tr:hover {
 
 /* #########################  MAIN CONTENT DISTANCE END HERE  ####################################  */
 
+/* #########################  PROJECTS PART START HER  ####################################  */
+
+.col-12.text-center.mb-4 {
+  margin-top: -50px;
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 55px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffea,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(8px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
+/* #########################  PROJECTS PART START END ###################################  */
+
+
+
+
+
+
+
+/* #########################################    START SERVICES SECTION HERE ################################ */
+/* New Services Design */
+.service-item {
+  text-align: center;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.service-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 50%;
+  height: 2px;
+  background-color: #ff00c8;
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.service-item:hover {
+  background-color: #fff951;
+  border-radius: 10px;
+}
+
+.service-item i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover i {
+  transform: translateY(-5px);
+}
+
+.icon-front {
+  color: #ff7300;
+}
+.icon-pentest {
+  color: #00ffea;
+}
+
+.service-description {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.service-item:hover .service-description {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.service-item h4 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+/* #########################################    END SERVICECS SECTION HERE #################################### */
+
+
+
+/* #################################    START FEEDBACK ########################### */
+
+ /* ==============================
+   FEEDBACK SECTION STYLING
+   Paste AFTER other CSS
+============================== */
+
+/* Feedback Heading */
+#feedback {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff6f61; /* Accent color */
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+/* Wave Grid Container */
+.wave-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  justify-items: center;
+  perspective: 1000px; /* 3D effect for card tilt */
+}
+
+/* Wave Card Styling */
+.wave-card {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  overflow: hidden;
+}
+
+/* Quote Icon */
+.wave-card i.fa-quote-left {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  color: #ffeb3b;
+  animation: bounce 2s infinite;
+}
+
+/* Card Text */
+.wave-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+/* Client Name */
+.wave-card h5 {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Hover Animation */
+.wave-card:hover {
+  transform: translateY(-15px) rotateY(10deg);
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Wave Animation Background */
+.wave-card::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.05);
+  top: -50%;
+  left: -50%;
+  border-radius: 50%;
+  animation: wave 6s linear infinite;
+}
+
+/* Keyframes for floating wave effect */
+@keyframes wave {
+  0% { transform: rotate(0deg) translateX(0); }
+  50% { transform: rotate(180deg) translateX(20px); }
+  100% { transform: rotate(360deg) translateX(0); }
+}
+
+/* Bounce Icon Animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .wave-card {
+    padding: 1.5rem 1rem;
+  }
+  #feedback {
+    font-size: 2rem;
+  }
+}
+/* #################################    END FEEDBACK  ######################## */
 
 
 
