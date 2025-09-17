@@ -69,14 +69,14 @@ var clientProjectsData = [
     title: "BonBhojon",
     paragraph:
       "Designed and developed the BonBhojon restaurant website, featuring immersive ambient design, interactive menu navigation, and an engaging “Truth or Dare” social feature—blending storytelling, UI aesthetics, and mobile responsiveness to deliver a memorable digital dining experience",
-    url: "https://github.com/your-repo/client-project-1",
+    url: "https://rsarkar.co.in/res/bb.jpg",
   },
   {
     img: "https://cdn-icons-png.flaticon.com/128/6238/6238926.png",
     title: "Natabari Crispi Biriyani",
     paragraph:
       "Developed a modern restaurant website – Natabari Crispi Biryani – featuring a responsive design, engaging UI, and smooth user experience to showcase the brand online",
-    url: "res/ncb.jpg",
+    url: "https://rsarkar.co.in/res/ncb.jpg",
   },
   
 ];
@@ -142,3 +142,4 @@ carouselButtons.forEach(function (button, index) {
     myCarousel.to(index);
   });
 });
+
