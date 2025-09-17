@@ -23,6 +23,25 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" />
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="icon" type="image/png" href="res/main.png"/>
+
+
+
+
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+
+
+
      <script>
         function handleSignup(event) {
             event.preventDefault(); // Prevent the form from submitting the default way
@@ -42,8 +61,10 @@
 <!-- Slide Menu -->
 <div id="slideMenu" class="slide-menu">
   <a href="#about" onclick="toggleMenu()">ABOUT</a>
+  <a href="#services" onclick="toggleMenu()">SERVICE</a>
   <a href="#skills" onclick="toggleMenu()">SKILLS</a>
   <a href="#projects" onclick="toggleMenu()">PROJECTS</a>
+  <a href="#testimonials" onclick="toggleMenu()">TESTIMONIALS</a>
   <a href="#contact" onclick="toggleMenu()">CONTACT</a>
 
 
@@ -184,6 +205,114 @@ I am constantly evolving, learning new techniques, and embracing challenges that
         <!-- about section end -->
         <hr />
 
+
+
+
+
+
+
+
+
+
+        <!--  SERVICES SECTION HERE START -->
+<div class="row mt-5 justify-content-center">
+  <span class="maincolor text-center mb-2" id="services">SERVICES</span> <!-- changed mb-4 to mb-2 -->
+  
+  <div class="col-12 text-center my-2"> <!-- changed my-4 to my-2 -->
+    <p style="font-size: 24px;">
+  I provide a wide range of IT services for individuals and businesses, including front-end web development, custom business websites, portfolio and personal website design, restaurant and café websites with online menu layouts, and other specialized web solutions. I also offer basic backend development and web & network penetration testing to ensure your sites are both functional and secure.
+</p>
+<p style="font-size: 24px;">
+  My services combine creative design with technical expertise, delivering websites that are visually engaging, user-friendly, and protected against potential security threats.
+</p>
+
+  </div>
+</div>
+
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <h3 class="card-title maincolor text-center mb-5">Frontend & Design</h3>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="service-item service-line">
+        <i class="fa-solid fa-code icon-front"></i>
+        <h4 class="fw-bold txt-color">Static Websites & Portfolios</h4>
+        <p class="txt-color service-description">
+          Crafting professional, responsive websites for personal brands and
+          portfolios.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="service-item service-line">
+        <i class="fa-solid fa-store icon-front"></i>
+        <h4 class="fw-bold txt-color">Small Business Website Design</h4>
+        <p class="txt-color service-description">
+          Creating custom websites for local businesses, including menu and
+          design layouts.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="service-item service-line">
+        <i class="fa-solid fa-server icon-front"></i>
+        <h4 class="fw-bold txt-color">Basic Backend Work</h4>
+        <p class="txt-color service-description">
+          Implementing basic server-side functionalities and API integration.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-5" style="border-color: #333" />
+
+  <div class="row justify-content-center">
+    <h3 class="card-title maincolor text-center mb-5">
+      Cybersecurity & Pentesting
+    </h3>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="service-item service-line">
+        <i class="fa-solid fa-shield-halved icon-pentest"></i>
+        <h4 class="fw-bold txt-color">Web Application Pentesting</h4>
+        <p class="txt-color service-description">
+          Identifying and mitigating vulnerabilities in web applications to
+          ensure robust security.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="service-item service-line">
+        <i class="fa-solid fa-network-wired icon-pentest"></i>
+        <h4 class="fw-bold txt-color">Network Penetration Testing</h4>
+        <p class="txt-color service-description">
+          Assessing network infrastructure to uncover security weaknesses and
+          potential entry points.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="service-item service-line">
+        <i class="fa-solid fa-bug icon-pentest"></i>
+        <h4 class="fw-bold txt-color">Vulnerability Scanning</h4>
+        <p class="txt-color service-description">
+          Automated and manual checks to find security flaws before they can be
+          exploited.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<hr />
+
+
+
+        <!--  SERVICES SECTION HERE END -->
+
+
+
+
+
         <!-- Skills -->
         <div class="row mt-5">
           <span class="maincolor text-center mb-4" id="skills">SKILL'S</span>
@@ -225,13 +354,56 @@ I am constantly evolving, learning new techniques, and embracing challenges that
 <!-- LMS close -->
 
 
-        <!-- Projects start-->
-        <div class="row mt-5 mb-5 justify-content-center">
-          <span class="maincolor text-center mb-4" id="projects">PROJECT'S</span>
-          <div class="row justify-content-center" id="project-container"></div>
-        </div>
-        <!-- Projects end-->
-        <hr />
+
+<!--###################################### PROJECTS SECTION START #################################### -->
+
+       <div class="row mt-5 mb-5 justify-content-center">
+  <span class="maincolor text-center mb-4" id="projects">PROJECT'S</span>
+</div>
+<div class="row justify-content-center">
+  <div class="col-12 text-center mb-4">
+  <div class="d-flex flex-wrap justify-content-center gap-2">
+    <button
+      type="button"
+      class="btn btn-primary glow-on-hover"
+      data-bs-target="#projectCarousel"
+      data-bs-slide-to="0"
+      aria-label="Slide 1"
+    >
+      Personal Projects
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary glow-on-hover"
+      data-bs-target="#projectCarousel"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    >
+      Client Projects
+    </button>
+  </div>
+</div>
+
+
+  <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row justify-content-center" id="personal-project-container">
+          </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="row justify-content-center" id="client-project-container">
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--###################################### PROJECTS SECTION END #################################### -->
+
 
 
         <!-- CERTIFY -->
@@ -286,6 +458,43 @@ I am constantly evolving, learning new techniques, and embracing challenges that
 
     <hr />
       <!--  CERTIFY END  -->
+
+
+<!-- ################################################  FEEDBACK SECTION START   ##################### -->
+<div class="row mt-5 justify-content-center">
+  <span class="maincolor text-center mb-4" id="testimonials">TESTIMONIALS</span>
+</div>
+
+<div class="wave-grid-container">
+  <div class="wave-card">
+    <i class="fa-solid fa-quote-left"></i>
+    <p>"The website he built for my business not only functions flawlessly but also looks incredible."</p>
+   <h5>Kunal Chatterjee</h5>
+  </div>
+  <div class="wave-card">
+    <i class="fa-solid fa-quote-left"></i>
+    <p>"The web security audit was incredibly thorough and professional. He found vulnerabilities we didn't even know existed."</p>
+    <h5>Priya Banerjee</h5>
+  </div>
+  <div class="wave-card">
+    <i class="fa-solid fa-quote-left"></i>
+    <p>"From start to finish, everything was fully customized and beautifully done, just the way I wanted. The website has been extremely helpful for starting my business."</p>
+    <h5>Kaushik Das</h5>
+  </div>
+  <div class="wave-card">
+    <i class="fa-solid fa-quote-left"></i>
+    <p>"He took my vague ideas and turned them into a stunning reality. The performance is outstanding."</p>
+    <h5>Riya Mukherjee</h5>
+  </div>
+</div>
+<hr />
+
+<!-- ################################################  FEEDBACK SECTION END ##################### -->
+
+
+
+
+
 
 
         <!-- contact start -->
