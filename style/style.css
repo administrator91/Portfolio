@@ -1401,7 +1401,7 @@ tbody tr:hover {
     animation: zoomIn 0.4s ease-in-out, pulseBorder 1.5s infinite alternate;
   }
 
-  /* Animation effects */
+
   @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.8) rotate(-3deg); }
     to   { opacity: 1; transform: scale(1) rotate(0deg); }
@@ -1424,7 +1424,7 @@ tbody tr:hover {
     100% { border-color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
   }
 
-  /* Responsive: hide on mobile */
+
   @media (max-width: 768px) {
     #certificate-preview { display: none !important; }
   }
