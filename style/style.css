@@ -1319,7 +1319,7 @@ tbody tr:hover {
 }
 /* #################################    END FEEDBACK  ######################## */
 /* #################################    CERTIFY HOVER IMAGE START  ######################## */
-/*   SIMPLE HOVER DESIGN 👇👇
+
     .badge-table {
       width: 100%;
       overflow-x: auto;
@@ -1375,10 +1375,10 @@ tbody tr:hover {
       from { opacity: 0; transform: scale(0.95); }
       to   { opacity: 1; transform: scale(1); }
     }
-*/
 
 
-  /* Certificate preview box */
+/* ANIMATED HOVER CERTIFY SECTION 
+ 
   #certificate-preview {
     position: absolute;
     display: none;
@@ -1428,6 +1428,7 @@ tbody tr:hover {
   @media (max-width: 768px) {
     #certificate-preview { display: none !important; }
   }
+*/
 /* #################################    CERTIFY HOVER IMAGE END  ######################## */
 
 
