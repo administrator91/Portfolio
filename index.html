@@ -312,7 +312,8 @@ I am constantly evolving, learning new techniques, and embracing challenges that
 
 
 
-        <!-- CERTIFY -->
+        <!-- CERTIFY SECTION  -->
+      <!--  OLD VERION CMMNTED👇👇
       <div class="row mt-5">
           <span class="maincolor text-center mb-4" id="certifications">CERTIFICATION'S</span>
         <div class="badge-table">
@@ -356,13 +357,105 @@ I am constantly evolving, learning new techniques, and embracing challenges that
                 <td>COURSERA</td>
                 <td>November 2023</td>
               </tr>
-              <!-- Add more rows as needed -->
+              
             </tbody>
           </table>
         </div>
       </div>
 
     <hr />
+      -->
+
+        <!-- NEW VERSION START HERE  -->
+  <div class="row mt-5">
+    <span class="maincolor text-center mb-4" id="certifications"><h2>CERTIFICATION'S</h2></span>
+    <div class="badge-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Badge</th>
+            <th>Title</th>
+            <th>Organization</th>
+            <th>Date Issued</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="https://aspen.eccouncil.org/verify" target="_blank">
+                <img src="res/ceh.png" 
+                     alt="CEH Badge" 
+                     class="badge-image" 
+                     data-certificate="res/cehc.png">
+              </a>
+            </td>
+            <td>CEH (Practical)</td>
+            <td>EC-COUNCIL</td>
+            <td>March 2025</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://my.ine.com/certifications" target="_blank">
+                <img src="res/cert1.png" 
+                     alt="eJPT v2 Badge" 
+                     class="badge-image" 
+                     data-certificate="res/ejpt.png">
+              </a>
+            </td>
+            <td>eJPT v2</td>
+            <td>INE</td>
+            <td>July 2024</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://coursera.org/verify/professional-cert/3LMDF3FZB4RT?trk=public_profile_see-credential" target="_blank">
+                <img src="res/gcloud.png" 
+                     alt="Google Cloud Digital Leader Training Badge" 
+                     class="badge-image" 
+                     data-certificate="res/gcloud-cert.png">
+              </a>
+            </td>
+            <td>Google Cloud Digital Leader Training</td>
+            <td>COURSERA</td>
+            <td>November 2023</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Certificate Popup Box -->
+  <div id="certificate-preview">
+    <img src="" alt="Certificate Preview">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const previewBox = document.getElementById("certificate-preview");
+      const previewImg = previewBox.querySelector("img");
+
+      document.querySelectorAll(".badge-image").forEach(badge => {
+        badge.addEventListener("mouseover", function(e) {
+          const certSrc = this.getAttribute("data-certificate");
+          if (certSrc) {
+            previewImg.src = certSrc;
+            previewBox.style.display = "block";
+          }
+        });
+
+        badge.addEventListener("mousemove", function(e) {
+          previewBox.style.left = e.pageX + 15 + "px";
+          previewBox.style.top = e.pageY - 50 + "px";
+        });
+
+        badge.addEventListener("mouseout", function() {
+          previewBox.style.display = "none";
+        });
+      });
+    });
+  </script>
+
+
       <!--  CERTIFY END  -->
 
 
@@ -974,6 +1067,7 @@ I am constantly evolving, learning new techniques, and embracing challenges that
     </script>
   </body>
 </html>
+
 
 
 
