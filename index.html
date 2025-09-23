@@ -428,7 +428,7 @@ I am constantly evolving, learning new techniques, and embracing challenges that
   <div id="certificate-preview">
     <img src="" alt="Certificate Preview">
   </div>
-
+<!-- SIMPLE HOVER SHOW
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const previewBox = document.getElementById("certificate-preview");
@@ -454,8 +454,57 @@ I am constantly evolving, learning new techniques, and embracing challenges that
       });
     });
   </script>
+        -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const previewBox = document.getElementById("certificate-preview");
+  const previewImg = previewBox.querySelector("img");
 
+  document.querySelectorAll(".badge-image").forEach(badge => {
 
+    // For desktop hover
+    badge.addEventListener("mouseover", function(e) {
+      const certSrc = this.getAttribute("data-certificate");
+      if (certSrc) {
+        previewImg.src = certSrc;
+        previewBox.style.display = "block";
+      }
+    });
+
+    badge.addEventListener("mousemove", function(e) {
+      previewBox.style.left = e.pageX + 20 + "px";
+      previewBox.style.top = e.pageY - 80 + "px";
+    });
+
+    badge.addEventListener("mouseout", function() {
+      previewBox.style.display = "none";
+    });
+
+    // For mobile tap
+    badge.addEventListener("click", function(e) {
+      const certSrc = this.getAttribute("data-certificate");
+      if (certSrc) {
+        previewImg.src = certSrc;
+        previewBox.style.display = previewBox.style.display === "block" ? "none" : "block";
+
+        // Center the popup near the tapped element
+        const rect = this.getBoundingClientRect();
+        previewBox.style.left = rect.left + window.scrollX + "px";
+        previewBox.style.top = rect.top + window.scrollY - 20 + "px";
+      }
+    });
+  });
+
+  // Hide preview if click outside
+  document.addEventListener("click", function(e){
+    if (!e.target.classList.contains("badge-image")) {
+      previewBox.style.display = "none";
+    }
+  });
+});
+</script>
+
+        
       <!--  CERTIFY END  -->
 
 
@@ -1067,6 +1116,7 @@ I am constantly evolving, learning new techniques, and embracing challenges that
     </script>
   </body>
 </html>
+
 
 
 
