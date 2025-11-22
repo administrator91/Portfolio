@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aao Dosti Karein! - Connect Cute Form</title>
-    <link rel="icon" type="image/png" href="res/msg.png"/>
     <!-- Tailwind CSS CDN for responsiveness and utility classes --><script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom Google Fonts for cute, cartoon vibe --><link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
@@ -59,16 +58,25 @@
             position: fixed;
             top: 0;
             left: 0;
-            /* FIX: Use 100vw and 100vh for guaranteed full screen coverage on all devices */
+            /* FIX: Use 100vw and 100vh for guaranteed full screen backdrop */
             width: 100vw; 
             height: 100vh; 
             background-color: #f8f8f8; /* Light background for preloader */
+            /* Removed Flexbox here to allow absolute positioning of content */
+            z-index: 99999; 
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+        }
+
+        /* NEW CSS: Wrapper for Preloader Content - Guaranteed Centering */
+        #preloader-content-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* The trick for perfect centering */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 99999; /* Increased z-index for safety */
-            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
         }
 
         .cloud {
@@ -171,6 +179,8 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease;
+            /* NEW FIX: Add padding to ensure the modal content doesn't touch the screen edges */
+            padding: 1rem; 
         }
 
         .modal-content {
@@ -178,7 +188,7 @@
             background: white;
             border-radius: 1.5rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            max-width: 90%;
+            /* max-width is now handled by max-w-sm in the HTML class and padding in the overlay */
             text-align: center;
             transform: scale(0.7); /* Starts smaller */
             transition: transform 0.3s ease;
@@ -252,10 +262,14 @@
 </head>
 <body oncontextmenu="return false;">
 
-    <!-- --- PRELOADER HTML START --- --><div id="preloader">
-        <div class="cloud"></div>
-        <!-- Adjusted text size and padding in CSS to prevent cutoff -->
-        <p class="preloader-text">Dosti ka signal aa raha hai..</p> 
+    <!-- --- PRELOADER HTML START --- -->
+    <div id="preloader">
+        <!-- Wrapper for guaranteed perfect center alignment -->
+        <div id="preloader-content-wrapper"> 
+            <div class="cloud"></div>
+            <!-- Adjusted text size and padding in CSS to prevent cutoff -->
+            <p class="preloader-text">Dosti ka signal aa raha hai... Poori baat sunkar hi aayega!</p> 
+        </div>
     </div>
     <!-- --- PRELOADER HTML END --- --><!-- Main Content (Hidden until preloader finishes) --><div id="main-content">
         <!-- Main Container: Adjusted for max vertical compactness on mobile -->
@@ -319,7 +333,7 @@
             
             <!-- --- COPYRIGHT FOOTER START (NEW ADDITION) --- --><footer class="mt-4 pt-2 border-t border-gray-100 text-center">
                 <p class="text-xs text-gray-500 font-medium">
-                    © Copyright 2025 | Rajarshi Sarkar
+                    © Copyright 2025 | Aapka Naam (Please replace this!)
                 </p>
             </footer>
             <!-- --- COPYRIGHT FOOTER END --- -->
