@@ -54,19 +54,20 @@
         }
         /* --- INFINITY CARTOON ANIMATED BACKGROUND END --- */
 
-        /* --- PRELOADER STYLES START --- */
+        /* --- PRELOADER STYLES START (FULL SCREEN FIX) --- */
         #preloader {
             position: fixed;
             top: 0;
             left: 0;
-            width: 80%;
-            height: 100%;
+            /* FIX: Use 100vw and 100vh for guaranteed full screen coverage on all devices */
+            width: 100vw; 
+            height: 100vh; 
             background-color: #f8f8f8; /* Light background for preloader */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
+            z-index: 99999; /* Increased z-index for safety */
             transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
         }
 
@@ -106,10 +107,14 @@
         }
 
         .preloader-text {
-            font-family: 'Fredoka One', cursive; /* Cute font for preloader text */
-            color: #ff99aa; /* Soft pink color */
-            font-size: 1.8rem; /* Larger text */
+            font-family: 'Fredoka One', cursive;
+            color: #ff99aa; 
+            /* Reduced font size for extreme mobile responsiveness to fix cut-off */
+            font-size: 1.25rem; 
             margin-top: 20px;
+            /* Added padding to prevent text cutoff on narrow screens */
+            padding: 0 1rem; 
+            text-align: center; 
             animation: text-pulse 2s infinite alternate;
         }
         
@@ -145,25 +150,62 @@
             to { box-shadow: 0 0 25px rgba(236, 72, 153, 0.9), 0 8px 12px rgba(0, 0, 0, 0.2); }
         }
 
-        /* Custom success message styling */
-        .success-box {
-            background-color: #d1fae5; /* Light Green */
-            border-left: 5px solid #10b981; /* Emerald border */
-        }
-        
+        /* Custom success message styling (for inline error box) */
         .error-box {
             background-color: #fee2e2; /* Light Red */
             border-left: 5px solid #ef4444; /* Red border */
         }
+        
+        /* --- MODAL/POPUP STYLES START --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            font-family: 'Open Sans', sans-serif;
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            max-width: 90%;
+            text-align: center;
+            transform: scale(0.7); /* Starts smaller */
+            transition: transform 0.3s ease;
+            border: 4px solid #10b981; /* Green success border */
+        }
+        
+        .success-box-modal {
+            background-color: #d1fae5; /* Light Green */
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1); /* Zooms into view */
+        }
+        /* --- MODAL/POPUP STYLES END --- */
+
 
         /* Simple cartoon speech bubble style (for the heading container) */
         .speech-bubble {
             position: relative;
             background: #fff;
-            border-radius: 1.5rem; /* Large rounded corners */
-            /* Adjusted padding to be more compact on small screens */
+            border-radius: 1.5rem; 
             padding: 1rem 1.5rem; 
-            /* Adjusted margin-bottom */
             margin-bottom: 1rem; 
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
@@ -181,17 +223,28 @@
             border-top: 20px solid #fff;
         }
 
-        /* Compact form spacing on small devices */
+        /* Responsive Form Spacing */
         .form-group {
-            margin-bottom: 0.75rem; /* Further reduced spacing between fields */
+            margin-bottom: 0.75rem; 
         }
-        /* Further adjust padding on smaller screens */
         .form-container-compact {
-            padding: 1rem; /* Equivalent to p-4 */
+            padding: 1rem; 
         }
+        /* Tablet/Small Desktop Optimization */
         @media (min-width: 640px) {
              .form-container-compact {
-                padding: 1.5rem; /* Equivalent to sm:p-6 */
+                padding: 1.5rem; 
+            }
+        }
+        /* Smallest Screen Safety Margin: Ensure card doesn't stick to edges */
+        @media (max-width: 400px) {
+            #main-content {
+                /* Reduced main padding to give the card more width */
+                padding: 0.5rem; 
+            }
+            .form-container-compact {
+                /* Inner padding is slightly reduced */
+                padding: 0.8rem;
             }
         }
 
@@ -201,7 +254,8 @@
 
     <!-- --- PRELOADER HTML START --- --><div id="preloader">
         <div class="cloud"></div>
-        <p class="preloader-text">Dosti ka signal aa raha hai...</p>
+        <!-- Adjusted text size and padding in CSS to prevent cutoff -->
+        <p class="preloader-text">Dosti ka signal aa raha hai..</p> 
     </div>
     <!-- --- PRELOADER HTML END --- --><!-- Main Content (Hidden until preloader finishes) --><div id="main-content">
         <!-- Main Container: Adjusted for max vertical compactness on mobile -->
@@ -216,7 +270,9 @@
                 </p>
             </div>
 
-            <!-- Form Submission Message Area (Hidden by Default) --><div id="result" class="hidden my-4 p-4 rounded-lg font-medium text-center"></div>
+            <!-- Form Error Message Area (Inline Error only, hidden by Default) -->
+            <!-- Success is now handled by the floating popup -->
+            <div id="result" class="hidden my-4 p-4 rounded-lg font-medium text-center"></div>
 
             <!-- The Contact Form: Uses reduced vertical spacing (space-y-3/sm:space-y-5) --><form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-3 sm:space-y-5">
                 
@@ -260,8 +316,25 @@
                 </div>
                 
             </form>
+            
+            <!-- --- COPYRIGHT FOOTER START (NEW ADDITION) --- --><footer class="mt-4 pt-2 border-t border-gray-100 text-center">
+                <p class="text-xs text-gray-500 font-medium">
+                    © Copyright 2025 | Rajarshi Sarkar
+                </p>
+            </footer>
+            <!-- --- COPYRIGHT FOOTER END --- -->
         </div>
     </div>
+    
+    <!-- --- SUCCESS POPUP MODAL START --- -->
+    <div id="success-modal-overlay" class="modal-overlay">
+        <div id="modal-content" class="modal-content max-w-sm w-full success-box-modal p-6 sm:p-8">
+            <h2 class="text-3xl font-extrabold text-green-600 mb-3">Shabaash! 🙌</h2>
+            <p id="modal-text" class="text-lg font-medium text-gray-700">Message successfully sent!</p>
+        </div>
+    </div>
+    <!-- --- SUCCESS POPUP MODAL END --- -->
+
 
     <!-- JavaScript for Preloader, IP Capture, and Form Submission -->
     <script>
@@ -294,8 +367,23 @@
             const submitButton = document.getElementById('submit-button');
             const ipInput = document.getElementById('ip-input'); 
             const deviceInfoInput = document.getElementById('device-info'); 
+            const modalOverlay = document.getElementById('success-modal-overlay');
+            const modalText = document.getElementById('modal-text');
 
-            // --- Function to Get Comprehensive Device Details (UPDATED) ---
+            // --- Function to Show and Auto-Hide Popup ---
+            function showPopup(message) {
+                modalText.innerHTML = message;
+                
+                // Show modal
+                modalOverlay.classList.add('active');
+
+                // Auto-hide after 3 seconds (3000ms)
+                setTimeout(() => {
+                    modalOverlay.classList.remove('active');
+                }, 3000); 
+            }
+
+            // --- Function to Get Comprehensive Device Details ---
             function getDeviceInfo() {
                 const ua = navigator.userAgent;
                 let os = 'Unknown OS', browser = 'Unknown Browser', device = 'Desktop';
@@ -343,7 +431,7 @@
                 const viewportHeight = window.innerHeight;
                 const colorDepth = screen.colorDepth;
                 const language = navigator.language;
-                const platform = navigator.platform; // Gives general OS architecture (Win32, MacIntel, etc.)
+                const platform = navigator.platform; 
 
 
                 // Compile all details into one string
@@ -365,19 +453,16 @@
             // --- Function to Fetch Public IP via External API (ipify) ---
             async function getPublicIp() {
                 try {
-                    // Using a reliable public IP detection service
                     const response = await fetch('https://api.ipify.org?format=json');
                     const data = await response.json();
                     
                     if (data && data.ip) {
-                        ipInput.value = data.ip; // Set the raw IPv4 address
+                        ipInput.value = data.ip; 
                     } else {
-                        // Fallback if the API returns no IP
                         ipInput.value = 'IP_Detection_Failed';
                         console.error('IP detection API returned invalid data.');
                     }
                 } catch (error) {
-                    // Network or API failure fallback
                     ipInput.value = 'IP_Fetch_Error';
                     console.error('Error fetching public IP:', error);
                 }
@@ -396,14 +481,16 @@
                     preloader.style.visibility = 'hidden';
                     mainContent.style.opacity = '1';
                     mainContent.style.visibility = 'visible';
-                }, 1500); // Preloader visible for at least 1.5 seconds
+                }, 1500); 
             });
 
             // --- Form Submission Logic (using fetch to avoid page reload) ---
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                // Client-side form validation is handled by HTML5 `required` and `pattern` attributes.
+                // Hide any previous inline error message
+                resultDiv.classList.add('hidden');
+
                 if (!form.checkValidity()) {
                     return; 
                 }
@@ -416,7 +503,6 @@
                 const object = Object.fromEntries(formData);
                 const json = JSON.stringify(object);
 
-                // Added exponential backoff for robustness against network issues
                 let response = null;
                 let data = null;
                 const MAX_RETRIES = 3;
@@ -436,48 +522,46 @@
                         data = await response.json();
 
                         if (data.success || response.ok) {
-                            // Break loop on success
                             break; 
                         } else if (i < MAX_RETRIES - 1) {
-                            // If API returns an error but it's not the final attempt, retry after delay
                             console.warn(`Submission failed (Attempt ${i + 1}). Retrying in ${delay}ms...`);
                             await new Promise(resolve => setTimeout(resolve, delay));
-                            delay *= 2; // Exponential backoff
+                            delay *= 2; 
                         }
 
                     } catch (error) {
                         console.error('Submission Fetch Error:', error);
-                        // Network error, retry
                         if (i < MAX_RETRIES - 1) {
                             await new Promise(resolve => setTimeout(resolve, delay));
                             delay *= 2;
                         } else {
-                            // Final attempt failed
                             data = { success: false, message: 'Network Error: Check your internet connection.' };
                         }
                     }
                 }
                 
                 if (data && data.success) {
-                    // Success message
-                    resultDiv.innerHTML = '✅ **Bhej Diya!** Aapka message mujhe mil gaya hai. Main jaldi hi aapse contact karunga/karungi. Thank you!';
-                    resultDiv.className = 'success-box my-4 p-4 rounded-lg font-bold text-center text-green-700';
-                    form.reset(); // Clear the form
+                    // 1. Clear the form fields (Auto-clear fix)
+                    form.reset(); 
+
+                    // 2. Show Success Popup (Popup/Modal fix)
+                    const successMessage = 'Aapka message mujhe mil gaya hai! Main jaldi hi aapse contact karunga/karungi. Thank you!';
+                    showPopup(successMessage);
+                    
                 } else {
-                    // Final Error message
+                    // Error message remains inline
                     const errorMessage = data ? `Error: ${data.message || 'Unknown API Issue.'}` : 'Error: Failed to connect to server.';
                     resultDiv.innerHTML = `❌ **Kuch Gadbad Hai:** Message nahi bhej paaya. Shayad API Key mein issue hai, ya network problem hai. ${errorMessage}`;
                     resultDiv.className = 'error-box my-4 p-4 rounded-lg font-bold text-center text-red-700';
+                    resultDiv.classList.remove('hidden'); // Show inline error
                     console.error('Final Submission Failure Details:', data || 'No response data.');
                 }
 
-                // Reset button and show result
+                // Reset button text (Popup hide hone tak button disabled rahega)
                 submitButton.textContent = '🚀 Mera Message Bhejo!';
                 submitButton.disabled = false;
-                resultDiv.classList.remove('hidden');
             });
         });
     </script>
 </body>
-
 </html>
