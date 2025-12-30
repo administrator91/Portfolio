@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MonsoonInMySky | A Love Story</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+
+    <style>
+        :root {
+            --soft-blush: #fffafa;
+            --deep-purple: #2d1b4d;
+            --rose: #ffb7c5;
+            --gold: #d4af37;
+            --green-heart: #4ade80;
+            --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent; 
+            user-select: none;
+        }
+        
+        body { 
+            background: var(--soft-blush); 
+            height: 100vh; width: 100vw;
+            overflow: hidden; 
+            font-family: 'Playfair Display', serif;
+        }
+
+        #preloader {
+            position: fixed; inset: 0; background: #fff; z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 0.8s ease;
+        }
+        .loader-title { 
+            font-family: 'Great Vibes', cursive; 
+            font-size: clamp(2rem, 7vw, 3.5rem); 
+            color: var(--rose); 
+            text-align: center;
+            min-height: 70px;
+            display: flex; align-items: flex-end; justify-content: center;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            margin-bottom: 12px;
+        }
+        .loader-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px; letter-spacing: 2px;
+            color: #888; margin-top: 12px;
+            font-weight: 500; text-transform: uppercase;
+        }
+
+        /* --- BIG GLOWING BUTTONS --- */
+        @keyframes high-glow {
+            0% { box-shadow: 0 0 10px var(--rose); transform: scale(1); }
+            50% { box-shadow: 0 0 35px var(--rose), 0 0 15px var(--gold); transform: scale(1.05); }
+            100% { box-shadow: 0 0 10px var(--rose); transform: scale(1); }
+        }
+
+        #main-reader { display: none; opacity: 0; transition: opacity 1s; }
+        #pdf-wrapper {
+            width: 100%; height: 100vh; overflow-y: scroll;
+            scroll-snap-type: y mandatory; scrollbar-width: none;
+        }
+        #pdf-wrapper::-webkit-scrollbar { display: none; }
+
+        .page-container {
+            width: 100%; height: 100vh;
+            display: flex; justify-content: center; 
+            align-items: flex-start;
+            scroll-snap-align: start; padding: 15px;
+        }
+
+        @media (min-width: 1024px) {
+            .page-container { align-items: center; }
+            canvas {
+                margin-top: 0 !important;
+                max-height: 85vh !important;
+            }
+        }
+
+        canvas { 
+            max-height: 72vh; 
+            max-width: 92%; 
+            margin-top: 30px; 
+            border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
+        }
+
+        .heart-circle {
+            position: fixed; bottom: 35px; left: 25px;
+            width: 80px; height: 80px;
+            background: white; border: 4px solid var(--green-heart);
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 42px; cursor: pointer; z-index: 1000;
+            animation: high-glow 3s infinite ease-in-out;
+            transition: var(--transition-smooth);
+        }
+        .nav-ui {
+            position: fixed; bottom: 35px; right: 25px;
+            display: flex; gap: 15px; z-index: 100;
+        }
+        .nav-btn {
+            background: white; border: 3px solid var(--rose);
+            padding: 15px 28px; border-radius: 55px; cursor: pointer;
+            font-family: 'Montserrat'; font-size: 12px; font-weight: bold;
+            color: var(--deep-purple); letter-spacing: 2px;
+            animation: high-glow 3s infinite ease-in-out;
+            transition: var(--transition-smooth);
+        }
+
+        .review-card {
+            background: white; padding: 25px; border-radius: 25px;
+            width: 90%; max-width: 380px; 
+            margin-top: 40px; 
+            max-height: 80vh; overflow-y: auto;
+            text-align: center; border: 1.5px solid var(--rose);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .field-label {
+            font-family: 'Cinzel Decorative'; font-size: 0.65rem;
+            color: var(--gold); display: block; text-align: left; margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .review-card input, .review-card textarea {
+            width: 100%; margin-bottom: 12px; padding: 14px; border-radius: 12px;
+            border: 1px solid #f0f0f0; font-family: 'Montserrat'; background: #fafafa;
+            outline: none; transition: var(--transition-smooth);
+        }
+        .submit-btn {
+            width: 100%; padding: 16px; border-radius: 50px;
+            border: none; background: var(--deep-purple); color: white;
+            font-family: 'Cinzel Decorative'; font-weight: bold;
+            cursor: pointer; font-size: 0.85rem; letter-spacing: 2px;
+            animation: high-glow 3s infinite alternate ease-in-out;
+        }
+
+        #success-toast {
+            display: none; position: fixed; top: -100px; left: 50%; transform: translateX(-50%);
+            background: white; border: 1.5px solid var(--gold); padding: 15px 30px;
+            border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 10000; font-family: 'Great Vibes'; font-size: 1.4rem;
+            transition: top 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            width: 85%; text-align: center;
+        }
+        #success-toast.show { top: 30px; display: block; }
+
+        .butterfly { position: absolute; font-size: 25px; pointer-events: none; animation: fly 15s linear infinite; opacity: 0.4; }
+        @keyframes fly { 0% { transform: translate(-10vw, 100vh); } 100% { transform: translate(110vw, -10vh); } }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div id="success-toast">The Monsoon has carried your soul whisper to the sky... ✨</div>
+
+    <div id="preloader">
+        <div id="trailer-text" class="loader-title">MonsoonInMySky</div>
+        <div style="width:130px; height:2px; background:#f5f5f5; position:relative; overflow:hidden;">
+            <div id="load-progress" style="position:absolute; height:100%; width:0%; background:var(--rose); transition:0.4s;"></div>
+        </div>
+        <div class="loader-sub">Gathering the clouds of My story...</div>
+        <div class="loader-sub">Please Be Wait :)</div>
+    </div>
+
+    <div id="particles-container"></div>
+
+    <div id="main-reader">
+        <div id="pdf-wrapper"></div>
+        <div class="heart-circle" onclick="heartExplosion(event)">💚</div>
+        <div class="nav-ui">
+            <button class="nav-btn" onclick="changePage(-1)">PREV</button>
+            <button class="nav-btn" onclick="changePage(1)">NEXT</button>
+        </div>
+    </div>
+
+    <script>
+        const trailerLines = [
+            "Arz kiya hai...",
+            "Main likha kuch tere baare mein,",
+            "Aise lage ki tu mere sath hai...",
+            "Ek tarfa hi sahi,",
+            "Par ye ishq bada khaas hai."
+        ];
+        let lineIdx = 0;
+        let trailerFinished = false;
+        let pdfFinished = false;
+        const textDisplay = document.getElementById('trailer-text');
+
+        function cycleTrailer() {
+            if (lineIdx < trailerLines.length) {
+                textDisplay.style.opacity = 0;
+                textDisplay.style.transform = "translateY(8px)";
+                setTimeout(() => {
+                    textDisplay.innerText = trailerLines[lineIdx];
+                    textDisplay.style.opacity = 1;
+                    textDisplay.style.transform = "translateY(0)";
+                    lineIdx++;
+                }, 600);
+            } else {
+                trailerFinished = true;
+                checkReadyState();
+                clearInterval(trailerInterval);
+            }
+        }
+        const trailerInterval = setInterval(cycleTrailer, 2800);
+
+        document.onkeydown = (e) => { if (e.ctrlKey && [85, 73, 74, 83].includes(e.keyCode)) return false; if (e.keyCode === 123) return false; };
+
+        function heartExplosion(e) {
+            const symbols = ['❤️', '💖', '🌸', '💕', '✨', '💘'];
+            const x = e.clientX || 65;
+            const y = e.clientY || window.innerHeight - 65;
+            for(let i=0; i<12; i++) {
+                const h = document.createElement('div');
+                h.style.cssText = `position:fixed; left:${x}px; top:${y}px; pointer-events:none; z-index:2000; font-size:40px;`;
+                h.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+                document.body.appendChild(h);
+                h.animate([
+                    { transform: 'translate(0,0) scale(0.3)', opacity: 1 },
+                    { transform: `translate(${(Math.random()-0.5)*250}px, -${Math.random()*400+100}px) scale(2.5)`, opacity: 0 }
+                ], { duration: 1500 + Math.random()*1000, easing: 'ease-out' }).onfinish = () => h.remove();
+            }
+        }
+
+        const docID = '1snzErgBrfhMfCHqOztp8Vbw98oypJLjN';
+        const pdfUrl = `https://docs.google.com/document/d/${docID}/export?format=pdf`;
+        const wrapper = document.getElementById('pdf-wrapper');
+        const progress = document.getElementById('load-progress');
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+        async function loadStory() {
+            try {
+                const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+                const totalPages = pdf.numPages;
+                const renderPromises = [];
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const container = document.createElement('div');
+                    container.className = 'page-container';
+                    const canvas = document.createElement('canvas');
+                    container.appendChild(canvas);
+                    wrapper.appendChild(container);
+
+                    const renderPage = async (num) => {
+                        const page = await pdf.getPage(num);
+                        const viewport = page.getViewport({ scale: window.innerWidth < 768 ? 1.5 : 2 });
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        const ctx = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
+                        await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+                        progress.style.width = (num / totalPages * 100) + '%';
+                    };
+                    renderPromises.push(renderPage(i));
+                }
+
+                await Promise.all(renderPromises);
+                appendReview();
+                pdfFinished = true;
+                checkReadyState();
+            } catch (err) { console.error(err); }
+        }
+
+        function checkReadyState() {
+            if (pdfFinished && (trailerFinished || lineIdx >= trailerLines.length)) {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    const main = document.getElementById('main-reader');
+                    main.style.display = 'block';
+                    setTimeout(() => main.style.opacity = '1', 50);
+                }, 800);
+            }
+        }
+
+        function appendReview() {
+            const rev = document.createElement('div');
+            rev.className = 'page-container';
+            rev.innerHTML = `
+                <div class="review-card">
+                    <h2 style="font-family:'Great Vibes'; font-size:2.5rem; color:var(--deep-purple); margin-bottom:15px;">Soul Whisper</h2>
+                    <form id="love-form">
+                        <input type="hidden" name="access_key" value="d40ccfbf-bdfc-44aa-952b-102c7e2afb0d">
+                        <span class="field-label">YOUR SOUL NAME</span>
+                        <input type="text" name="name" placeholder="Whisper your name..." required>
+                        <span class="field-label">A MESSAGE FOR THE SKY</span>
+                        <textarea name="message" rows="4" placeholder="Let your heart speak..." required></textarea>
+                        <button type="submit" class="submit-btn">SEAL OUR STORY</button>
+                    </form>
+                    <p style="font-family:'Montserrat'; font-size:8px; letter-spacing:1px; color:var(--rose); margin-top:15px; opacity:0.7;">
+                        CURATED WITH LOVE BY <span style="color:var(--gold); font-weight:bold;">Akash Sarkar :)</span>
+                    </p>
+                </div>
+            `;
+            wrapper.appendChild(rev);
+            document.getElementById('love-form').onsubmit = async (e) => {
+                e.preventDefault();
+                const btn = e.target.querySelector('button'); btn.innerText = "SEALING...";
+                const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(e.target) });
+                if(res.ok) {
+                    const toast = document.getElementById('success-toast');
+                    toast.classList.add('show');
+                    e.target.reset(); heartExplosion(e);
+                    setTimeout(() => toast.classList.remove('show'), 4000);
+                }
+                btn.innerText = "SEAL OUR STORY";
+            };
+        }
+
+        function changePage(dir) { wrapper.scrollBy({ top: window.innerHeight * dir, behavior: 'smooth' }); }
+        loadStory();
+        
+        setInterval(() => {
+            const b = document.createElement('div');
+            b.className = 'butterfly'; b.innerText = '🦋';
+            b.style.left = Math.random() * 95 + 'vw';
+            document.getElementById('particles-container').appendChild(b);
+            setTimeout(() => b.remove(), 15000);
+        }, 5000);
+    </script>
+</body>
+</html>
