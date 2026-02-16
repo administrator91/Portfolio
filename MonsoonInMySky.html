@@ -43,170 +43,164 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
-    <style>
-        :root {
-            --soft-blush: #fffafa;
-            --deep-purple: #2d1b4d;
-            --rose: #ffb7c5;
-            --gold: #d4af37;
-            --green-heart: #4ade80;
-            --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+<style>
+    :root {
+        --soft-blush: #fffafa;
+        --deep-purple: #2d1b4d;
+        --rose: #ffb7c5;
+        --gold: #d4af37;
+        --green-heart: #4ade80;
+        --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        * { 
-            margin: 0; padding: 0; box-sizing: border-box; 
-            -webkit-tap-highlight-color: transparent; 
-            user-select: none;
-        }
-        
-        body { 
-            background: var(--soft-blush); 
-            height: 100vh; width: 100vw;
-            overflow: hidden; 
-            font-family: 'Playfair Display', serif;
-        }
+    * { 
+        margin: 0; padding: 0; box-sizing: border-box; 
+        -webkit-tap-highlight-color: transparent; 
+        user-select: none;
+    }
+    
+    body { 
+        background: var(--soft-blush); 
+        height: 100vh; width: 100vw;
+        overflow: hidden; 
+        font-family: 'Playfair Display', serif;
+    }
 
-        #preloader {
-            position: fixed; inset: 0; background: #fff; z-index: 9999;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transition: opacity 0.8s ease;
-        }
-        .loader-title { 
-            font-family: 'Great Vibes', cursive; 
-            font-size: clamp(2rem, 7vw, 3.5rem); 
-            color: var(--rose); 
-            text-align: center;
-            min-height: 70px;
-            display: flex; align-items: flex-end; justify-content: center;
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            margin-bottom: 12px;
-        }
-        .loader-sub {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 10px; letter-spacing: 2px;
-            color: #888; margin-top: 12px;
-            font-weight: 500; text-transform: uppercase;
-        }
+    #preloader {
+        position: fixed; inset: 0; background: #fff; z-index: 9999;
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        transition: opacity 0.8s ease;
+        padding: 20px;
+    }
+    .loader-title { 
+        font-family: 'Great Vibes', cursive; 
+        font-size: clamp(2rem, 7vw, 3.5rem); 
+        color: var(--rose); 
+        text-align: center;
+        min-height: 70px;
+        display: flex; align-items: flex-end; justify-content: center;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        margin-bottom: 12px;
+    }
+    .loader-sub {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 10px; letter-spacing: 2px;
+        color: #888; margin-top: 12px;
+        font-weight: 500; text-transform: uppercase;
+        text-align: center;
+    }
 
-        /* --- BIG GLOWING BUTTONS --- */
-        @keyframes high-glow {
-            0% { box-shadow: 0 0 10px var(--rose); transform: scale(1); }
-            50% { box-shadow: 0 0 35px var(--rose), 0 0 15px var(--gold); transform: scale(1.05); }
-            100% { box-shadow: 0 0 10px var(--rose); transform: scale(1); }
-        }
+    /* --- BIG GLOWING BUTTONS ANIMATION --- */
+    @keyframes high-glow {
+        0% { box-shadow: 0 0 10px var(--rose); transform: scale(1); }
+        50% { box-shadow: 0 0 35px var(--rose), 0 0 15px var(--gold); transform: scale(1.05); }
+        100% { box-shadow: 0 0 10px var(--rose); transform: scale(1); }
+    }
 
-        #main-reader { display: none; opacity: 0; transition: opacity 1s; }
-        #pdf-wrapper {
-            width: 100%; height: 100vh; overflow-y: scroll;
-            scroll-snap-type: y mandatory; scrollbar-width: none;
-        }
-        #pdf-wrapper::-webkit-scrollbar { display: none; }
+    #main-reader { display: none; opacity: 0; transition: opacity 1s; }
+    #pdf-wrapper {
+        width: 100%; height: 100vh; 
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory; 
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch; /* smooth scroll for iOS */
+    }
+    #pdf-wrapper::-webkit-scrollbar { display: none; }
 
-        .page-container {
-            width: 100%; height: 100vh;
-            display: flex; justify-content: center; 
-            align-items: flex-start;
-            scroll-snap-align: start; padding: 15px;
-        }
+    /* RESPONSIVE PAGE CONTAINER */
+    .page-container {
+        width: 100%; height: 100vh;
+        display: flex; justify-content: center; 
+        align-items: center; /* Centered for all screens */
+        scroll-snap-align: start; 
+        padding: 15px;
+        position: relative;
+    }
 
-        @media (min-width: 1024px) {
-            .page-container { align-items: center; }
-            canvas {
-                margin-top: 0 !important;
-                max-height: 85vh !important;
-            }
-        }
+    /* RESPONSIVE CANVAS (PDF) */
+    canvas { 
+        max-height: 80vh; 
+        max-width: 95%; 
+        width: auto !important;
+        height: auto !important;
+        border-radius: 12px; 
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
+    }
 
-        canvas { 
-            max-height: 72vh; 
-            max-width: 92%; 
-            margin-top: 30px; 
-            border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
-        }
+    /* BIG GLOWING UI - MOBILE FRIENDLY */
+    .heart-circle {
+        position: fixed; bottom: 30px; left: 20px;
+        width: clamp(65px, 15vw, 80px); 
+        height: clamp(65px, 15vw, 80px);
+        background: white; border: 4px solid var(--green-heart);
+        border-radius: 50%; display: flex; justify-content: center; align-items: center;
+        font-size: clamp(35px, 8vw, 42px); 
+        cursor: pointer; z-index: 1000;
+        animation: high-glow 3s infinite ease-in-out;
+        transition: var(--transition-smooth);
+    }
+    
+    .nav-ui {
+        position: fixed; bottom: 30px; right: 20px;
+        display: flex; gap: 8px; z-index: 1000;
+        flex-wrap: wrap; justify-content: flex-end;
+    }
+    
+    .nav-btn {
+        background: white; border: 3px solid var(--rose);
+        padding: clamp(12px, 3vw, 15px) clamp(15px, 4vw, 20px); 
+        border-radius: 55px; cursor: pointer;
+        font-family: 'Montserrat'; 
+        font-size: clamp(9px, 2.5vw, 11px); 
+        font-weight: bold;
+        color: var(--deep-purple); letter-spacing: 1px;
+        animation: high-glow 3s infinite ease-in-out;
+        transition: var(--transition-smooth);
+    }
 
-        .heart-circle {
-            position: fixed; bottom: 35px; left: 25px;
-            width: 80px; height: 80px;
-            background: white; border: 4px solid var(--green-heart);
-            border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-size: 42px; cursor: pointer; z-index: 1000;
-            animation: high-glow 3s infinite ease-in-out;
-            transition: var(--transition-smooth);
-        }
-        .nav-ui {
-            position: fixed; bottom: 35px; right: 25px;
-            display: flex; gap: 10px; z-index: 100;
-        }
-        .nav-btn {
-            background: white; border: 3px solid var(--rose);
-            padding: 15px 20px; border-radius: 55px; cursor: pointer;
-            font-family: 'Montserrat'; font-size: 10px; font-weight: bold;
-            color: var(--deep-purple); letter-spacing: 1px;
-            animation: high-glow 3s infinite ease-in-out;
-            transition: var(--transition-smooth);
-        }
+    /* ABOUT OVERLAY */
+    #about-overlay {
+        position: fixed; inset: 0; background: rgba(255, 250, 250, 0.96);
+        backdrop-filter: blur(10px); z-index: 2000;
+        display: none; opacity: 0; transition: var(--transition-smooth);
+        overflow-y: auto; padding: 40px 20px;
+    }
+    .about-content {
+        max-width: 650px; margin: 0 auto; line-height: 1.8;
+        color: var(--deep-purple); text-align: center;
+    }
+    .about-title { font-family: 'Great Vibes'; font-size: clamp(2.5rem, 10vw, 3.5rem); color: var(--deep-purple); margin: 20px 0; }
+    .about-subtitle { font-family: 'Cinzel Decorative'; color: var(--gold); font-size: 1.2rem; margin-top: 30px; }
+    
+    /* FORM CARD RESPONSIVE */
+    .review-card {
+        background: white; padding: 25px; border-radius: 25px;
+        width: 100%; max-width: 400px; 
+        margin: 20px auto;
+        text-align: center; border: 1.5px solid var(--rose);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
 
-        /* --- ABOUT SECTION STYLES --- */
-        #about-overlay {
-            position: fixed; inset: 0; background: rgba(255, 250, 250, 0.95);
-            backdrop-filter: blur(10px); z-index: 2000;
-            display: none; opacity: 0; transition: var(--transition-smooth);
-            overflow-y: auto; padding: 40px 20px;
-        }
-        .about-content {
-            max-width: 600px; margin: 0 auto; line-height: 1.8;
-            color: var(--deep-purple); text-align: center;
-        }
-        .about-title { font-family: 'Great Vibes'; font-size: 3rem; color: var(--deep-purple); margin: 20px 0; }
-        .about-subtitle { font-family: 'Cinzel Decorative'; color: var(--gold); font-size: 1.2rem; margin-top: 30px; }
-        .highlight-gold { color: var(--gold); font-weight: bold; }
-        .highlight-rose { color: var(--rose); font-style: italic; font-weight: bold; }
-        .close-about { 
-            margin-top: 30px; margin-bottom: 50px;
-            background: var(--deep-purple); color: white; border: none;
-            padding: 12px 35px; border-radius: 50px; cursor: pointer;
-            font-family: 'Montserrat'; letter-spacing: 2px;
-        }
+    #success-toast {
+        display: none; position: fixed; top: -100px; left: 50%; transform: translateX(-50%);
+        background: white; border: 1.5px solid var(--gold); padding: 15px 25px;
+        border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        z-index: 10000; font-family: 'Great Vibes'; font-size: 1.3rem;
+        transition: top 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        width: 85%; text-align: center;
+    }
+    #success-toast.show { top: 30px; display: block; }
 
-        .review-card {
-            background: white; padding: 25px; border-radius: 25px;
-            width: 90%; max-width: 380px; 
-            margin-top: 40px; 
-            max-height: 80vh; overflow-y: auto;
-            text-align: center; border: 1.5px solid var(--rose);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .field-label {
-            font-family: 'Cinzel Decorative'; font-size: 0.65rem;
-            color: var(--gold); display: block; text-align: left; margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .review-card input, .review-card textarea {
-            width: 100%; margin-bottom: 12px; padding: 14px; border-radius: 12px;
-            border: 1px solid #f0f0f0; font-family: 'Montserrat'; background: #fafafa;
-            outline: none; transition: var(--transition-smooth);
-        }
-        .submit-btn {
-            width: 100%; padding: 16px; border-radius: 50px;
-            border: none; background: var(--deep-purple); color: white;
-            font-family: 'Cinzel Decorative'; font-weight: bold;
-            cursor: pointer; font-size: 0.85rem; letter-spacing: 2px;
-            animation: high-glow 3s infinite alternate ease-in-out;
-        }
+    .butterfly { position: absolute; font-size: 25px; pointer-events: none; animation: fly 15s linear infinite; opacity: 0.4; }
+    @keyframes fly { 0% { transform: translate(-10vw, 100vh); } 100% { transform: translate(110vw, -10vh); } }
 
-        #success-toast {
-            display: none; position: fixed; top: -100px; left: 50%; transform: translateX(-50%);
-            background: white; border: 1.5px solid var(--gold); padding: 15px 30px;
-            border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            z-index: 10000; font-family: 'Great Vibes'; font-size: 1.4rem;
-            transition: top 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            width: 85%; text-align: center;
-        }
-        #success-toast.show { top: 30px; display: block; }
-
-        .butterfly { position: absolute; font-size: 25px; pointer-events: none; animation: fly 15s linear infinite; opacity: 0.4; }
-        @keyframes fly { 0% { transform: translate(-10vw, 100vh); } 100% { transform: translate(110vw, -10vh); } }
-    </style>
+    /* Fix for Laptop/Large screens */
+    @media (min-width: 1024px) {
+        canvas { max-height: 85vh; }
+        .nav-ui { gap: 15px; bottom: 35px; right: 35px; }
+        .heart-circle { bottom: 35px; left: 35px; }
+    }
+</style>
 </head>
 <body oncontextmenu="return false;">
 
